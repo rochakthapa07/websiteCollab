@@ -1,3 +1,8 @@
+body{
+    margin: 0; 
+    padding: 0;
+    background-color: #F3DBBC;
+}
 .footer {
   background: #9E5949;
   border-top: 1px solid rgba(255,255,255,0.07);
@@ -60,9 +65,6 @@
 .footer__bottom a {
   color: var(--fire);
   font-weight: 600;
-body{
-    margin: 0; 
-    padding: 0;
 }
 #loader {
   position: fixed;

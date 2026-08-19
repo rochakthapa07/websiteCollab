@@ -1,3 +1,126 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar</title>
+
+    <style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    :root {
+        --cream: #fffaf3;
+        --ink: #2d1b12;
+        --green: #04aa6d;
+        --soft-green: #dff7ec;
+    }
+
+    .navbar {
+        width: 100%;
+        padding: 22px 6%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        background: var(--cream);
+
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 35px;
+
+        list-style: none;
+    }
+
+    .nav-links a {
+        position: relative;
+
+        text-decoration: none;
+        color: var(--ink);
+
+        font-family: 'Bangers', cursive;
+        font-size: 1rem;
+        letter-spacing: 1.2px;
+
+        padding: 4px 2px;
+
+        transition: 0.25s ease;
+    }
+
+    .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+
+        width: 0;
+        height: 2px;
+        transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover {
+        color: var(--green);
+        transform: translateY(-2px);
+    }
+
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+
+    .nav-links a.active {
+        color: var(--green);
+    }
+
+    .nav-links a.active::after {
+        width: 100%;
+    }
+
+    </style>
+    </head>
+
+    <body>
+
+    <nav class="navbar">
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="#home" class="active">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="#blog">
+                Blog
+            </a>
+        </li>
+
+        <li>
+            <a href="#explore">
+                Explore
+            </a>
+        </li>
+
+        <li>
+            <a href="#contact">
+                Contact
+            </a>
+        </li>
+
+    </ul>
+
+    </nav>
+
+    </body>
+    </html>
 <!DOCTYPE html>
 <html>
 <head>
