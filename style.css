@@ -2,11 +2,91 @@ body{
     margin: 0; 
     padding: 0;
     background-color: #F3DBBC;
+    box-sizing: border-box;
 }
+#logo{
+        margin-right: auto;
+    }
+
+    
+    :root {
+        --cream: #fffaf3;
+        --ink: #FFF8F0;;
+        --green: #04aa6d;
+        --soft-green: #dff7ec;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        padding: 0 6%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 40px;
+        background: transparent;
+        z-index: 1000;
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 35px;
+
+        list-style: none;
+    }
+
+    .nav-links a {
+        position: relative;
+
+        text-decoration: none;
+        color: var(--ink);
+
+        font-family: 'Baloo 2', cursive;
+        font-size: 1.2rem;
+        letter-spacing: 1.2px;
+
+        padding: 4px 2px;
+
+        transition: 0.25s ease;
+    }
+
+    .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+
+        width: 0;
+        height: 2px;
+        transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover {
+        color: #F1DFC9;
+        transform: translateY(-2px);
+    }
+
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+
+    .nav-links a.active {
+        color: #F1DFC9;
+    }
+
+    .nav-links a.active::after {
+        width: 100%;
+    }
 .footer {
   background: #9E5949;
   border-top: 1px solid rgba(255,255,255,0.07);
   padding: 60px clamp(20px, 4vw, 60px) 30px;
+  font-family: 'Baloo 2', cursive;
+  
 }
 
 .footer__inner {
@@ -32,33 +112,31 @@ body{
 }
 
 .footer__col h4 {
-  font-family: 'Baloo 2', Cursive;
+  font-family: 'Baloo 2', cursive;
   letter-spacing: 2px;
   font-size: 1rem;
   color: #F3DBBC;
   margin-bottom: 16px;
+  text-decoration: none;
 }
 
 .footer__col a,
 .footer__col p {
   display: block;
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   color: #F3DBBC;
   margin-bottom: 10px;
   transition: color 0.3s;
+  text-decoration: none;
 }
 
 .footer__col a:hover { color: hsl(0, 0%, 100%) }
 
 .footer__bottom {
-  max-width: var(--container);
   margin: 24px auto 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  text-align: center;
   font-size: 0.8rem;
   color: #F3DBBC;
-  flex-wrap: wrap;
   gap: 12px;
 }
 

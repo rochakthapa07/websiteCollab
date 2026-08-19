@@ -3,17 +3,107 @@
 <head>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="author" content="Rochak Thapa">
 	<meta name="description" content="Home page of website">
 	<title>BhedaCraft-Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+     .Navphoto{
+       width: 60px;
+        height: 60px;
+        border-radius: 35%;
+        display: block;
+    }
+    </style>
 </head>
 <body>
     <div id="loader">
-        <img src="Assets/BhedaCraftLogo.jpg" alt="BhedaCraft Logo" class="logo">
+        <img src="Assets/BhedaCraftLogo.png" alt="BhedaCraft Logo" class="logo">
     </div>
+    <nav class="navbar">
+        <div>
+            <img src="Assets/BhedaCraftLogo.png" alt="BhedaCraft Logo" class="Navphoto">
+        </div>
+    <ul class="nav-links">
+        
+        <li>
+            <a href="index.html" >
+                Home
+            </a>
+        </li>
+
+        
+        <li>
+            <a href="explore.html">
+                Explore
+            </a>
+        </li>
+
+        <li>
+            <a href="blog.html"class="active">
+                Blog
+            </a>
+        </li>
+
+
+        <li>
+            <a href="contact.html">
+                Contact
+            </a>
+        </li>
+
+    </ul>
+    </nav>
     
+    <footer>
+		<footer class="footer">
+    <div class="footer__inner">
+
+      <!-- Brand column -->
+      <div class="footer__brand">   
+        
+        <img src="Assets/BhedaCraftLogo.png" style="border-radius: 50%;" alt="Bheda Craft Logo" />
+        <p>Handcrafted whimsical items in the heart of Kathmandu.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer__col">
+        <h4 style="font-family: 'Fisterra Fora', sans-serif;">Navigate</h4>
+        <a href="index.html">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer__col">
+        <h4 style="font-family: 'Fisterra Fora', sans-serif;" >Contact</h4>
+        <p>Tarakeshwor-10, KTM</p>
+        
+        <p>+977-9761830129</p>
+        
+        <a href="mailto:bhedadoescraft@gmail.com">BhedaDoesCraft@gmail.com</a>
+        
+        <a href="https://instagram.com/bhedacraft" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; 2026 BhedaCraft. All rights reserved.</p>
+    </div>
+  </footer>
     
 </body>
 </html>
