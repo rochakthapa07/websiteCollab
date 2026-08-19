@@ -101,6 +101,15 @@ body{
     transform: scale(1);
   }
 }
+@font-face {
+    font-family: "Fisterra Fora";
+    src: url("./Fonts/fontspring-demo-tty-fisterra-fora.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Fisterra Morte";
+    src: url("./Fonts/fontspring-demo-tty-fisterra-morte.otf") format("opentype");
+}
 .loginsu {
     display: none;
     position: fixed;
@@ -111,7 +120,7 @@ body{
 }
 
 .popup {
-    background: white;
+    background: #F3DBBC;
     width: 300px;
     max-width: 90%;
     padding: 30px;
@@ -151,4 +160,39 @@ body{
     right: 20px;
     font-size: 22px;
     cursor: pointer;
+}
+.image-slider{
+    width:100%;
+    overflow:hidden;
+    padding:35px 0;
+    background:#F3DBBC;
+}
+
+.slide-track{
+    display:flex;
+    width:max-content;
+    animation:scroll 35s linear infinite;
+}
+
+.slide-track img{
+    width:300px;
+    height:220px;
+    object-fit:cover;
+    margin-right:20px;
+    border-radius:15px;
+    flex-shrink:0;
+    transition:0.3s;
+}
+
+.slide-track img:hover{
+    transform:scale(1.05);
+}
+
+@keyframes scroll{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(calc(-320px * 7));
+    }
 }

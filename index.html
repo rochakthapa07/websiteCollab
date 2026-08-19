@@ -172,15 +172,75 @@
 
 </body>
     <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="author" content="Rochak Thapa">
-	<meta name="description" content="Home page of website">
-	<title>BhedaCraft</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Rochak Thapa">
+    <meta name="description" content="Home page of website">
+    <title>BhedaCraft</title>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <style>
+        .heroButtons{
+            display: flex;
+            gap: 20px;
+        }
+        
+        .heroLink{
+            display: inline-block;
+            background:  #FFF8F0;
+            color: #5B342C;
+            text-decoration: none;
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+            border: none;    
+        }
+        .heroLink:hover{
+            background-color:#F1DFC9;
+        }
+        .why{
+            width:90%;
+            margin:60px auto;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:50px;
+        }
+
+        .why-text{
+            width:50%;
+        }
+
+        .why-text h2{
+            font-family: 'Fisterra Fora', sans-serif;
+            color:#3E2F24;
+            font-size:36px;
+            margin-bottom:15px;
+        }
+
+        .why-text p{
+            color:#5B4636;
+            line-height:1.8;
+            font-size:18px;
+            font-family: 'Baboo 2', cursive;
+        }
+
+        .why-image{
+            width:45%;
+        }
+
+        .why-image img{
+            width:100%;
+            border-radius:15px;
+        }
+    </style>
+
 </head>
 <body>
     <div id="loader">
@@ -188,75 +248,101 @@
     </div>
     
     <section style="position: relative; width: 100%;">
+        <img src="Assets/HeroImageBD.png"
+             alt="Hero Image"
+             style="display: block; width: 100%; height: auto;">
 
-    <img src="Assets/heroImage.png"
-         alt="Hero Image"
-         style="display: block; width: 100%; height: auto;">
+        <div style="position: absolute;
+                    top: 50%;
+                    left: 8%;
+                    transform: translateY(-50%);
+                    color: #3E2F24;
+                    max-width: 550px;">
 
-    <div style="position: absolute;
-                top: 50%;
-                left: 8%;
-                transform: translateY(-50%);
-                color: #3E2F24;
-                max-width: 550px;">
+            <!-- Fixed font-family with quotes -->
+            <h1 style="font-family: 'Fisterra Fora', sans-serif;
+                       font-size: 64px;
+                       font-weight: 800;
+                       margin: 0 0 20px 0;
+                       line-height: 1.1;
+                       color: #FFF8F0;">
+                Whimsy In<br>Every Stitch 
+            </h1>
 
-        <h1 style="font-family: Baloo 2, cursive;
-                font-size: 64px;
-                   font-weight: 800;
-                   margin: 0 0 20px 0;
-                   line-height: 1.1;">
-            Whimsy In<br>Every Stitch
-        </h1>
+            <p style="font-family: 'Baboo 2', cursive;
+                      font-size: 22px;
+                      line-height: 1.6;
+                      margin-bottom: 35px; 
+                      color: #FFF8F0">
+                Discover artisan-crafted felt pieces where tradition, imagination, and sustainability come together beautifully.
+            </p>
+            <div class="heroButtons">
+            <a href="#" onclick="openLogin(); return false;" class="heroLink">
+                Login
+            </a>
+            
+            <a href="explore.html" class="heroLink">
+                Explore 
+            </a>
+            </div>
+        </div>
+    </section>
 
-        <p style="font-size: 22px;
-                  line-height: 1.6;
-                  margin-bottom: 35px; color: #2F2F2F;">
-            Discover artisan-crafted felt pieces where tradition, imagination, and sustainability come together beautifully.
-        </p>
-        <a href="#" onclick="openLogin(); return false;"
-           style="display: inline-block;
-                  background:#3E2F24;
-                  color: white;
-                  text-decoration: none;
-                  padding: 15px 35px;
-                  border-radius: 30px;
-                  font-size: 18px;
-                  font-weight: bold;
-                  transition: 0.3s;">
-            Login
-        </a>
-        <a href="explore.html"
-           style="display: inline-block;
-                  background: #3E2F24;
-                  color: white;
-                  text-decoration: none;
-                  padding: 15px 35px;
-                  border-radius: 30px;
-                  font-size: 18px;
-                  font-weight: bold;
-                  transition: 0.3s;">
-            Explore 
-        </a>
+    <section class="why">
+        <div class="why-text">
+            <h2>Why Choose Us?</h2>
+            <p>
+                Every piece created at BhedaCraft is made with care, love, and
+                incredible attention to detail by skilled artisans of Nepal. Using age-old
+                techniques and high-quality wool, we design products which reflect the magic of
+                handmade craftsmanship. Each product is distinct in its own way with character
+                that is impossible to replicate in any other piece.
+                <br> <br>   
+                At BhedaCraft, our mission is not just to create beautiful products but to ensure
+                that culture, art, and tradition are preserved for future generations. By using
+                eco-friendly materials, our mission of sustainable living becomes achievable with
+                each product purchased from us.
+            </p>
+        </div>
 
+        <div class="why-image">
+            <img src="Assets/" alt="Handmade Felt Products">
+        </div>
+    </section>
+
+    <!-- Fixed font-family with quotes -->
+    <h1 style="text-align: center; padding-top: 40px; color: #3E2F24; font-family: 'Fisterra Fora', sans-serif;">Inspired by Nepal, Made by Hand</h1>
+    
+    <section class="image-slider">
+        <div class="slide-track">
+            <!-- First Set -->
+            <img src="Assets/img1.jpg" alt="">
+            <img src="Assets/img2.jpg" alt="">
+            <img src="Assets/img3.jpg" alt="">
+            <img src="Assets/img4.jpg" alt="">
+            <img src="Assets/img5.jpg" alt="">
+            <img src="Assets/img6.jpg" alt="">
+            <img src="Assets/img7.jpg" alt="">
+
+            <!-- Duplicate Set -->
+            <img src="Assets/img1.jpg" alt="">
+            <img src="Assets/img2.jpg" alt="">
+            <img src="Assets/img3.jpg" alt="">
+            <img src="Assets/img4.jpg" alt="">
+            <img src="Assets/img5.jpg" alt="">
+            <img src="Assets/img6.jpg" alt="">
+            <img src="Assets/img7.jpg" alt="">
+        </div>
+    </section>
+
+    <div class="loginsu" id="loginsu">
+        <form class="popup" onsubmit="closeLogin(); return false;">
+            <span class="close" onclick="closeLogin()">✕</span>
+            <h2>Login</h2>
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
     </div>
-
-</section>
-
-<div class="loginsu" id="loginsu">
-    <form class="popup" onsubmit="closeLogin(); return false;">
-        
-        <span class="close" onclick="closeLogin()">✕</span>
-
-        <h2>Login</h2>
-
-        <input type="text" placeholder="Username" required>
-
-        <input type="password" placeholder="Password" required>
-
-        <button type="submit">Login</button>
-
-    </form>
-</div>
-
 </body> 
 </html>
