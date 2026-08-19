@@ -60,4 +60,93 @@
 .footer__bottom a {
   color: var(--fire);
   font-weight: 600;
+body{
+    margin: 0; 
+    padding: 0;
+}
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #f5f1eb;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+}
+
+/* Logo styling */
+.logo {
+  width: 220px;
+  animation: zoomFade 1.5s ease;
+}
+
+/* Animation */
+@keyframes zoomFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.loginsu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup {
+    background: white;
+    width: 300px;
+    max-width: 90%;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.popup h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.popup input,
+.popup button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    box-sizing: border-box;
+}
+
+.popup input {
+    border: 1px solid #999;
+    font-size: 14px;
+}
+
+.popup button {
+    background: #3d5f2f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 22px;
+    cursor: pointer;
 }

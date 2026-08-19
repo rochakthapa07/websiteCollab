@@ -48,4 +48,92 @@
 	</footer>
 
 </body>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Rochak Thapa">
+	<meta name="description" content="Home page of website">
+	<title>BhedaCraft</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div id="loader">
+        <img src="Assets/BhedaCraftLogo.jpg" alt="BhedaCraft Logo" class="logo">
+    </div>
+    
+    <section style="position: relative; width: 100%;">
+
+    <img src="Assets/heroImage.png"
+         alt="Hero Image"
+         style="display: block; width: 100%; height: auto;">
+
+    <div style="position: absolute;
+                top: 50%;
+                left: 8%;
+                transform: translateY(-50%);
+                color: #3E2F24;
+                max-width: 550px;">
+
+        <h1 style="font-family: Baloo 2, cursive;
+                font-size: 64px;
+                   font-weight: 800;
+                   margin: 0 0 20px 0;
+                   line-height: 1.1;">
+            Whimsy In<br>Every Stitch
+        </h1>
+
+        <p style="font-size: 22px;
+                  line-height: 1.6;
+                  margin-bottom: 35px; color: #2F2F2F;">
+            Discover artisan-crafted felt pieces where tradition, imagination, and sustainability come together beautifully.
+        </p>
+        <a href="#" onclick="openLogin(); return false;"
+           style="display: inline-block;
+                  background:#3E2F24;
+                  color: white;
+                  text-decoration: none;
+                  padding: 15px 35px;
+                  border-radius: 30px;
+                  font-size: 18px;
+                  font-weight: bold;
+                  transition: 0.3s;">
+            Login
+        </a>
+        <a href="explore.html"
+           style="display: inline-block;
+                  background: #3E2F24;
+                  color: white;
+                  text-decoration: none;
+                  padding: 15px 35px;
+                  border-radius: 30px;
+                  font-size: 18px;
+                  font-weight: bold;
+                  transition: 0.3s;">
+            Explore 
+        </a>
+
+    </div>
+
+</section>
+
+<div class="loginsu" id="loginsu">
+    <form class="popup" onsubmit="closeLogin(); return false;">
+        
+        <span class="close" onclick="closeLogin()">✕</span>
+
+        <h2>Login</h2>
+
+        <input type="text" placeholder="Username" required>
+
+        <input type="password" placeholder="Password" required>
+
+        <button type="submit">Login</button>
+
+    </form>
+</div>
+
+</body> 
 </html>
