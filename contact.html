@@ -1,106 +1,634 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Home page of website">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    
-	<!-- Google Fonts -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Contact BhedaCraft">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap"
+          rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+
     <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
         * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-     .Navphoto{
-       width: 60px;
-        height: 60px;
-        border-radius: 35%;
-        display: block;
-    }
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fff;
+            color: #333;
+            font-family: 'Baloo 2', cursive;
+        }
+
+
+        .Navphoto {
+            width: 60px;
+            height: 60px;
+            border-radius: 35%;
+            display: block;
+        }
+
+        .navbar {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            padding: 0 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #9E5949;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            position: relative;
+            text-decoration: none;
+            color: #fff;
+            font-family: 'Baloo 2', cursive;
+            font-size: 1.2rem;
+            letter-spacing: 1.2px;
+            padding: 4px 2px;
+            transition: 0.25s ease;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 2px;
+            background: #F1DFC9;
+            transition: width 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: #F1DFC9;
+            transform: translateY(-2px);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: #F1DFC9;
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .contact-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 60px auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+
+        .map-section {
+            width: 100%;
+        }
+
+        .map {
+            width: 100%;
+            height: 550px;
+            display: block;
+            border: 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+        }
+
+
+        .contact-form-section {
+            width: 100%;
+            margin: 0;
+            padding: 35px;
+            background: #F1DFC9;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+            font-family: 'Baloo 2', cursive;
+        }
+
+        .contact-heading {
+            font-family: 'Baloo 2', cursive;
+            color: #9E5949;
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Baloo 2', cursive;
+            margin-bottom: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 11px 13px;
+            border: 2px solid #d8bca8;
+            border-radius: 8px;
+            font-family: 'Baloo 2', cursive;
+            font-size: 1rem;
+            background: #fff;
+            color: #333;
+            transition: 0.25s ease;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #9E5949;
+            box-shadow: 0 0 0 2px rgba(158, 89, 73, 0.15);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #999;
+        }
+
+
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: #9E5949;
+            color: #F1DFC9;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Baloo 2', cursive;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.25s ease;
+        }
+
+        .submit-btn:hover {
+            background: #b82d0e;
+            transform: translateY(-2px);
+        }
+
+
+        .footer {
+            background: #9E5949;
+            color: #F1DFC9;
+            margin-top: 70px;
+            padding-top: 45px;
+        }
+
+        .footer__inner {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            padding-bottom: 40px;
+        }
+
+        .footer__brand img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .footer__brand p {
+            max-width: 300px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .footer__col {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer__col h4 {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .footer__col p,
+        .footer__col a {
+            color: #F1DFC9;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .footer__col a:hover {
+            color: #fff;
+        }
+
+        .footer__col i {
+            font-size: 1.5rem;
+            margin-top: 8px;
+        }
+
+        .footer__bottom {
+            border-top: 1px solid rgba(241, 223, 201, 0.3);
+            text-align: center;
+            padding: 18px;
+        }
+
+        .footer__bottom p {
+            font-size: 0.95rem;
+        }
+
+
+
+        @media (max-width: 900px) {
+
+            .contact-container {
+                width: 90%;
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .map {
+                height: 450px;
+            }
+
+            .footer__inner {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                height: auto;
+                min-height: 80px;
+                padding: 10px 5%;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .nav-links {
+                gap: 18px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links a {
+                font-size: 1rem;
+            }
+
+            .contact-container {
+                width: 92%;
+                margin: 35px auto;
+                gap: 25px;
+            }
+
+            .map {
+                height: 350px;
+                border-radius: 12px;
+            }
+
+            .contact-form-section {
+                padding: 25px 20px;
+            }
+
+            .contact-heading {
+                font-size: 1.7rem;
+            }
+
+            .footer__inner {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+
+            .footer__brand p {
+                margin: auto;
+            }
+
+            .footer {
+                margin-top: 40px;
+            }
+        }
+
     </style>
 </head>
+
+
 <body>
+
+
+
     <div id="loader">
-        <img src="Assets/BhedaCraftLogo.png" alt="BhedaCraft Logo" class="logo">
+        <img src="Assets/BhedaCraftLogo.png"
+             alt="BhedaCraft Logo"
+             class="logo">
     </div>
+
+
     <nav class="navbar">
+
         <div>
-            <img src="Assets/BhedaCraftLogo.png" alt="BhedaCraft Logo" class="Navphoto">
+            <img src="Assets/BhedaCraftLogo.png"
+                 alt="BhedaCraft Logo"
+                 class="Navphoto">
         </div>
-    <ul class="nav-links">
-        
-        <li>
-            <a href="index.html" >
-                Home
-            </a>
-        </li>
 
-        <li>
-            <a href="explore.html">
-                Explore
-            </a>
-        </li>
+        <ul class="nav-links">
 
-        <li>
-            <a href="blog.html">
-                Blog
-            </a>
-        </li>
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
 
+            <li>
+                <a href="explore.html">
+                    Explore
+                </a>
+            </li>
 
-        <li>
-            <a href="contact.html"class="active">
-                Contact
-            </a>
-        </li>
+            <li>
+                <a href="blog.html">
+                    Blog
+                </a>
+            </li>
 
-    </ul>
+            <li>
+                <a href="contact.html" class="active">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
     </nav>
 
-    <footer>
-		<footer class="footer">
-    <div class="footer__inner">
 
-      <!-- Brand column -->
-      <div class="footer__brand">   
-        
-        <img src="Assets/BhedaCraftLogo.png" style="border-radius: 50%;" alt="Bheda Craft Logo" />
-        <p>Handcrafted whimsical items in the heart of Kathmandu.</p>
-      </div>
+    <main>
 
-      <!-- Quick Links -->
-      <div class="footer__col">
-        <h4 style="font-family: 'Fisterra Fora', sans-serif;">Navigate</h4>
-        <a href="index.html">Home</a>
-        <a href="explore.html">Explore</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-      </div>
+        <div class="contact-container">
 
-      <!-- Contact -->
-      <div class="footer__col">
-        <h4 style="font-family: 'Fisterra Fora', sans-serif;" >Contact</h4>
-        <p>Tarakeshwor-10, KTM</p>
-        
-        <p>+977-9761830129</p>
-        
-        <a href="mailto:bhedadoescraft@gmail.com">BhedaDoesCraft@gmail.com</a>
-        
-        <a href="https://instagram.com/bhedacraft" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
-      </div>
 
-    </div>
+            <!-- MAP LEFT -->
 
-    <div class="footer__bottom">
-      <p>&copy; 2026 BhedaCraft. All rights reserved.</p>
-    </div>
-  </footer>
+            <div class="map-section">
+
+                <iframe
+                    class="map"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.1003850466286!2d85.30798047554188!3d27.745049576161037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19d27efe2ec5%3A0xd33b75a3d0b266!2sNATURAL%20WOOL%20HOUSE!5e0!3m2!1sen!2snp!4v1787543341921!5m2!1sen!2snp"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+
+            </div>
+
+
+            <!-- FORM RIGHT -->
+
+            <section class="contact-form-section">
+
+                <h2 class="contact-heading">
+                    Get in Touch
+                </h2>
+
+                <form class="contact-form"
+                      action="#"
+                      method="POST">
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Your full name"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="@gmail.com"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone (optional)
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="+977-XXXXXXXXXX">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="subject">
+                            Subject
+                        </label>
+
+                        <input
+                            type="text"
+                            id="subject"
+                            name="subject"
+                            placeholder="Explain"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Message
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="5"
+                            placeholder="Tell us more"
+                            required></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="submit-btn">
+
+                        Send Message
+
+                    </button>
+
+                </form>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <footer class="footer">
+
+        <div class="footer__inner">
+
+
+            <!-- Brand -->
+
+            <div class="footer__brand">
+
+                <img
+                    src="Assets/BhedaCraftLogo.png"
+                    alt="Bheda Craft Logo"
+                    style="border-radius: 50%;">
+
+                <p>
+                    Handcrafted whimsical items in the heart of Kathmandu.
+                </p>
+
+            </div>
+
+
+            <!-- Navigation -->
+
+            <div class="footer__col">
+
+                <h4>
+                    Navigate
+                </h4>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="explore.html">
+                    Explore
+                </a>
+
+                <a href="blog.html">
+                    Blog
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <!-- Contact -->
+
+            <div class="footer__col">
+
+                <h4>
+                    Contact
+                </h4>
+
+                <p>
+                    Tarakeshwor-10, KTM
+                </p>
+
+                <p>
+                    +977-9761830129
+                </p>
+
+                <a href="mailto:bhedadoescraft@gmail.com">
+                    BhedaDoesCraft@gmail.com
+                </a>
+
+                <a href="https://instagram.com/bhedacraft"
+                   target="_blank"
+                   rel="noopener"
+                   aria-label="Instagram">
+
+                    <i class="fa-brands fa-instagram"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer__bottom">
+
+            <p>
+                &copy; 2026 BhedaCraft. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
 </body>
 </html>
