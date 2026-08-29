@@ -19,13 +19,7 @@
         padding: 0;
         box-sizing: border-box;
     }
-    .Navphoto{
-       width: 60px;
-        height: 60px;
-        border-radius: 35%;
-        display: block;
-    }
-    
+   
         .heroButtons{
             display: flex;
             gap: 20px;
@@ -86,10 +80,13 @@
 
 </head>
 <body>
+    <div id="loader">
+        <img src="Assets/BhedaCraftLogo.png" alt="BhedaCraft Logo" class="logo">
+    </div>
     <nav class="navbar">
-        <div >
+        <a href="index.html">
             <img src="Assets/BhedaCraftLogo.png" alt="BhedaCraft Logo" class="Navphoto">
-        </div>
+        </a>
     <ul class="nav-links">
         
         <li>
@@ -103,7 +100,7 @@
                 Explore
             </a>
         </li>
-        
+
         <li>
             <a href="blog.html">
                 Blog
@@ -118,9 +115,7 @@
 
     </ul>
     </nav>
-    <div id="loader">
-        <img src="Assets/BhedaCraftLogo.png" alt="BhedaCraft Logo" class="logo">
-    </div>
+    
     
     <section style="position: relative; width: 100%;">
         <img src="Assets/HeroImageBD.png"
