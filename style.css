@@ -164,7 +164,13 @@ body{
   width: 220px;
   animation: zoomFade 1.5s ease;
 }
-
+ .Navphoto{
+       width: 60px;
+        height: 60px;
+        border-radius: 35%;
+        display: block;
+    }
+    
 /* Animation */
 @keyframes zoomFade {
   0% {

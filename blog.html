@@ -2,108 +2,1504 @@
 <html>
 <head>
     <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Home page of website">
-	<title>BhedaCraft-Blog</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="BhedaCraft Blog - Handmade Nepalese Felt Crafts and Women Empowerment">
+    <title>BhedaCraft - Blog</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+          rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+
     <style>
+
         * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .Navphoto {
+            width: 60px;
+            height: 60px;
+            border-radius: 35%;
+            display: block;
+        }
+
+        :root {
+            --ink: #2D4F1E;
+            --cream: #FCFAF7;
+            --mint: #E8F5E9;
+            --terracotta: #9E5949;
+            --tan: #C5A27D;
+            --body-text: #4A4642;
+            --hairline: rgba(45, 79, 30, 0.12);
+        }
+
+        section {
+            padding: 40px 20px;
+            background-color: var(--cream);
+        }
+
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            counter-reset: chapter;
+        }
+
+        /* =========================================
+           MASTHEAD
+        ========================================= */
+
+        .journal-masthead {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            max-width: 1200px;
+            margin: 0 auto 34px;
+            padding: 0 20px;
+        }
+
+        .journal-masthead .masthead-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--ink) 50%, transparent);
+            opacity: 0.35;
+        }
+
+        .journal-masthead .masthead-label {
+            font-family: 'Baloo 2', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--ink);
+            white-space: nowrap;
+        }
+
+        .journal-masthead .masthead-label span {
+            color: var(--terracotta);
+        }
+
+        /* =========================================
+           BLOG SECTION CARD
+        ========================================= */
+
+        .blog-section {
+            position: relative;
+            background-color: #fff;
+            border-radius: 14px;
+            padding: 44px 46px;
+            margin-bottom: 28px;
+            box-shadow: 0 1px 2px rgba(45, 79, 30, 0.04), 0 12px 28px rgba(45, 79, 30, 0.07);
+            border: 1px solid var(--hairline);
+            counter-increment: chapter;
+            transition: transform 0.35s cubic-bezier(.2,.7,.3,1), box-shadow 0.35s ease;
+        }
+
+        .blog-section:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 4px 8px rgba(45, 79, 30, 0.06), 0 26px 44px rgba(45, 79, 30, 0.12);
+        }
+
+        /* signature: a thin terracotta tab on the left edge of every card */
+        .blog-section::before {
+            content: "";
+            position: absolute;
+            top: 28px;
+            bottom: 28px;
+            left: 0;
+            width: 4px;
+            border-radius: 4px;
+            background: var(--terracotta);
+            opacity: 0.9;
+        }
+
+        /* giant ghost chapter numeral watermark */
+        .blog-section::after {
+            content: counter(chapter, decimal-leading-zero);
+            position: absolute;
+            top: 6px;
+            right: 26px;
+            font-family: 'Baloo 2', sans-serif;
+            font-weight: 800;
+            font-size: 96px;
+            line-height: 1;
+            color: var(--mint);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .blog-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .blog-section h2 {
+            color: var(--ink);
+            font-family: 'Baloo 2', sans-serif;
+            font-weight: 800;
+            font-size: 34px;
+            letter-spacing: -0.4px;
+            line-height: 1.15;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--hairline);
+            position: relative;
+        }
+
+        /* eyebrow chapter label above every heading */
+        .blog-section h2::before {
+            content: "Chapter " counter(chapter, decimal-leading-zero);
+            display: block;
+            font-family: 'Lora', serif;
+            font-style: italic;
+            font-weight: 500;
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--terracotta);
+            margin-bottom: 12px;
+        }
+
+        .conclusion-box h2::before {
+            content: "Epilogue";
+        }
+
+        /* two-tone underline accent beneath every h2 */
+        .blog-section h2::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            width: 64px;
+            height: 3px;
+            background: var(--terracotta);
+        }
+
+        .blog-section h3 {
+            color: var(--ink);
+            font-family: 'Baloo 2', sans-serif;
+            font-weight: 600;
+            font-size: 19px;
+            letter-spacing: 0.2px;
+            margin-top: 28px;
+            margin-bottom: 14px;
+        }
+
+        .blog-content {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 17px;
+            line-height: 1.9;
+            color: var(--body-text);
+        }
+
+        .blog-content p {
+            margin-bottom: 18px;
+        }
+
+        /* editorial drop cap on the opening paragraph of the intro */
+        .blog-section:first-of-type .blog-content > p:first-child::first-letter {
+            font-family: 'Baloo 2', sans-serif;
+            font-weight: 800;
+            font-size: 3.6em;
+            line-height: 0.8;
+            float: left;
+            padding: 4px 8px 0 0;
+            color: var(--terracotta);
+        }
+
+        /* oversized magazine pull-quote */
+        .pull-quote {
+            font-family: 'Lora', serif;
+            font-style: italic;
+            font-weight: 500;
+            font-size: 27px;
+            line-height: 1.5;
+            color: var(--ink);
+            text-align: center;
+            max-width: 620px;
+            margin: 34px auto;
+            padding: 26px 10px;
+            position: relative;
+        }
+
+        .pull-quote::before,
+        .pull-quote::after {
+            content: "";
+            display: block;
+            width: 46px;
+            height: 2px;
+            background: var(--terracotta);
+            margin: 0 auto 18px;
+        }
+
+        .pull-quote::after {
+            margin: 18px auto 0;
+        }
+
+        .blog-content ol,
+        .blog-content ul {
+            list-style: none;
+            margin-left: 4px;
+            margin-bottom: 22px;
+        }
+
+        .blog-content ul li {
+            position: relative;
+            padding-left: 26px;
+            margin-bottom: 12px;
+        }
+
+        .blog-content ul li::before {
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--terracotta);
+        }
+
+        .blog-content ol {
+            list-style: decimal;
+            margin-left: 22px;
+        }
+
+        .blog-content ol li {
+            margin-bottom: 12px;
+        }
+
+        .blog-meta {
+            display: inline-block;
+            color: var(--ink);
+            background: var(--mint);
+            font-family: 'Baloo 2', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            padding: 7px 16px;
+            border-radius: 999px;
+            margin-bottom: 26px;
+        }
+
+        .sub-section {
+            position: relative;
+            background: var(--mint);
+            padding: 34px 36px 30px 56px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: none;
+        }
+
+        .sub-section h3 {
+            margin-top: 0;
+        }
+
+        /* decorative quotation mark for the pull-quote style block */
+        .sub-section::before {
+            content: "\201C";
+            position: absolute;
+            top: 6px;
+            left: 14px;
+            font-family: Georgia, serif;
+            font-size: 72px;
+            line-height: 1;
+            color: var(--terracotta);
+            opacity: 0.55;
+        }
+
+        .sub-section .blog-content strong {
+            color: var(--ink);
+        }
+
+        .conclusion-box {
+            background: linear-gradient(160deg, var(--mint) 0%, var(--cream) 65%);
+            border: none;
+            padding: 40px 46px;
+            margin-top: 30px;
+        }
+
+        .conclusion-box::before {
+            background: var(--ink);
+        }
+
+        .conclusion-box h2::after {
+            background: var(--ink);
+        }
+
+        .conclusion-box::after {
+            content: "";
+        }
+
+        .conclusion-box .blog-content strong {
+            color: var(--ink);
+        }
+
+
+        /* =========================================
+           TWO COLUMN BLOG SECTIONS
+        ========================================= */
+
+        .blog-two-column {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .blog-text {
+            min-width: 0;
+        }
+
+
+        /* =========================================
+           IMAGE PLACEHOLDER
+        ========================================= */
+
+        .blog-content strong {
+            color: var(--terracotta);
+            font-weight: 600;
+        }
+
+        .blog-image-placeholder {
+            width: 100%;
+            min-height: 330px;
+
+            background-color: var(--mint);
+            border: 2px dashed var(--tan);
+            border-radius: 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+        }
+
+        .blog-image-placeholder::before {
+            content: "Add Image Here";
+            color: var(--terracotta);
+            font-family: 'Baloo 2', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+
+        /* Images added later */
+
+        .blog-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            min-height: 330px;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+        }
+
+
+        
+
+        /* =========================================
+           READING PROGRESS BAR
+        ========================================= */
+
+        .reading-progress-track {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(45, 79, 30, 0.08);
+            z-index: 999;
+        }
+
+        .reading-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--ink), var(--terracotta));
+        }
+
+        @media (max-width: 768px) {
+
+            .blog-section::after {
+                font-size: 60px;
+                top: 4px;
+                right: 16px;
+            }
+
+            .blog-section h2 {
+                font-size: 26px;
+            }
+
+            .pull-quote {
+                font-size: 21px;
+            }
+
+            .journal-masthead .masthead-label {
+                font-size: 11px;
+                letter-spacing: 2.5px;
+            }
+
+        }
+
+        @media (max-width: 768px) {
+
+            section {
+                padding: 20px 10px;
+            }
+
+            .blog-section {
+                padding: 26px 22px;
+            }
+
+            .sub-section {
+                padding: 28px 22px 24px 22px;
+            }
+
+            .conclusion-box {
+                padding: 28px 22px;
+            }
+
+            .blog-section:first-of-type .blog-content > p:first-child::first-letter {
+                font-size: 2.8em;
+            }
+
+            .blog-two-column {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .blog-image-placeholder {
+                min-height: 250px;
+            }
+
+            .blog-image-placeholder img {
+                min-height: 250px;
+            }
+
+        }
+       .hero-video {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    min-height: 600px;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background: #FCFAF7;
+}
+
+.hero-video video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(45, 79, 30, 0.12),
+        rgba(252, 250, 247, 0.02),
+        rgba(197, 162, 125, 0.10)
+    );
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .hero-video {
+        height: 55vh;
+        min-height: 400px;
     }
-     .Navphoto{
-       width: 60px;
-        height: 60px;
-        border-radius: 35%;
-        display: block;
-    }
+}
+
+
+
+        
     </style>
 </head>
+
+
 <body>
-    <div id="loader">
-        <img src="Assets/BhedaCraftLogo.png" alt="BhedaCraft Logo" class="logo">
+
+    <div class="reading-progress-track">
+        <div class="reading-progress-bar" id="readingProgressBar"></div>
     </div>
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================= -->
+
     <nav class="navbar">
-        <div>
-            <img src="Assets/BhedaCraftLogo.png" alt="BhedaCraft Logo" class="Navphoto">
-        </div>
-    <ul class="nav-links">
-        
-        <li>
-            <a href="index.html" >
-                Home
-            </a>
-        </li>
 
-        
-        <li>
-            <a href="explore.html">
-                Explore
-            </a>
-        </li>
+        <a href="index.html">
+            <img src="Assets/BhedaCraftLogo.png"
+                 alt="BhedaCraft Logo"
+                 class="Navphoto">
+        </a>
 
-        <li>
-            <a href="blog.html"class="active">
-                Blog
-            </a>
-        </li>
+        <ul class="nav-links">
 
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
 
-        <li>
-            <a href="contact.html">
-                Contact
-            </a>
-        </li>
+            <li>
+                <a href="explore.html">
+                    Explore
+                </a>
+            </li>
 
-    </ul>
+            <li>
+                <a href="blog.html" class="active">
+                    Blog
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
     </nav>
-    
-    <footer>
-		<footer class="footer">
-    <div class="footer__inner">
 
-      <!-- Brand column -->
-      <div class="footer__brand">   
-        
-        <img src="Assets/BhedaCraftLogo.png" style="border-radius: 50%;" alt="Bheda Craft Logo" />
-        <p>Handcrafted whimsical items in the heart of Kathmandu.</p>
-      </div>
+    <section class="hero-video">
+    <video autoplay muted loop playsinline>
+        <source src="Assets/My Movie 6.mp4" type="video/mp4">
+    </video>
 
-      <!-- Quick Links -->
-      <div class="footer__col">
-        <h4 style="font-family: 'Fisterra Fora', sans-serif;">Navigate</h4>
-        <a href="index.html">Home</a>
-        <a href="explore.html">Explore</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-      </div>
+    <div class="hero-overlay"></div>
+</section>
 
-      <!-- Contact -->
-      <div class="footer__col">
-        <h4 style="font-family: 'Fisterra Fora', sans-serif;" >Contact</h4>
-        <p>Tarakeshwor-10, KTM</p>
-        
-        <p>+977-9761830129</p>
-        
-        <a href="mailto:bhedadoescraft@gmail.com">BhedaDoesCraft@gmail.com</a>
-        
-        <a href="https://instagram.com/bhedacraft" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
-      </div>
 
-    </div>
 
-    <div class="footer__bottom">
-      <p>&copy; 2026 BhedaCraft. All rights reserved.</p>
-    </div>
-  </footer>
-    
+</section>
+
+    <!-- =========================================
+         BLOG CONTENT
+    ========================================= -->
+
+    <section>
+
+        <div class="journal-masthead">
+            <span class="masthead-line"></span>
+            <span class="masthead-label">BhedaCraft Journal <span>&mdash;</span> Vol. 01</span>
+            <span class="masthead-line"></span>
+        </div>
+
+        <div class="blog-container">
+
+
+            <!-- =========================================
+                 INTRODUCTION
+            ========================================= -->
+
+            <div class="blog-section">
+
+                <h2>
+                    From Wool to Opportunity: How Nepalese Women
+                    Are Shaping the Future of Handmade Craft
+                </h2>
+
+                <div class="blog-meta">
+                    BhedaCraft | Handmade in Nepal | Women, Craft & Community
+                </div>
+
+                <div class="blog-content">
+
+                    <p>
+                        Behind every handmade product is a story — a story of
+                        patience, creativity, tradition, and the hands that
+                        carefully transform simple materials into something
+                        beautiful.
+                    </p>
+
+                    <p>
+                        At <strong>BhedaCraft</strong>, we believe that handmade
+                        crafts should not only bring beauty into people's homes.
+                        They should also create opportunities and make a meaningful
+                        difference in people's lives.
+                    </p>
+
+                    <p>
+                        One organization that represents this vision is
+                        <strong>Natural Wool House Pvt. Ltd.</strong>, a Nepalese
+                        felt and woolen handicraft manufacturer and exporter based
+                        in Tarakeshwor-10, Kathmandu.
+                    </p>
+
+                    <p>
+                        With years of experience in handmade production, Natural
+                        Wool House works with producers, particularly women from
+                        remote communities of Nepal, creating opportunities for
+                        women who have traditionally faced economic and social
+                        challenges.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 CRAFTING MORE THAN PRODUCTS
+            ========================================= -->
+
+            <div class="blog-section">
+
+                <h2>
+                    Crafting More Than Products
+                </h2>
+
+                <div class="blog-content">
+
+                    <p>
+                        Natural Wool House specializes in creating handmade felt
+                        and woolen products using <strong>100% wool</strong>.
+                        Their collection includes felt bags, shoes, purses,
+                        animals, Christmas decorations, Christmas rugs, felt ball
+                        pot stands, felt ball rugs, brooches, puppets, and many
+                        other creative accessories.
+                    </p>
+
+                    <p>
+                        But these products represent much more than their materials.
+                        Every piece carries the time, skill, creativity, and effort
+                        of the person who made it.
+                    </p>
+
+                    <p>
+                        Their motto,
+                        <strong>“Always Fresh and Unique,”</strong>
+                        reflects their approach to handmade production.
+                    </p>
+
+                    <p>
+                        By combining traditional craftsmanship with creative
+                        techniques, they produce colorful, attractive, and
+                        carefully finished products while creating opportunities
+                        for Nepalese artisans.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 BEAUTIFUL PRODUCTS - IMAGE RIGHT
+            ========================================= -->
+
+            <div class="blog-section">
+
+                <div class="blog-two-column">
+
+
+                    <!-- LEFT: CONTENT -->
+
+                    <div class="blog-text">
+
+                        <h2>
+                            Beautiful Products Made by Hand
+                        </h2>
+
+                        <div class="blog-content">
+
+                            <p>
+                                Natural Wool House creates a wide range of felt
+                                and woolen handicrafts, combining creativity with
+                                traditional Nepalese craftsmanship.
+                            </p>
+
+                            <ul>
+                                <li>Felt Bags</li>
+                                <li>Felt Shoes</li>
+                                <li>Felt Purses</li>
+                                <li>Felt Animal Items</li>
+                                <li>Felt Christmas Decorations</li>
+                                <li>Felt Christmas Rugs</li>
+                                <li>Felt Ball Pot Stands</li>
+                                <li>Felt Ball Rugs</li>
+                                <li>Felt Brooches</li>
+                                <li>Felt Puppets</li>
+                            </ul>
+
+                            <p>
+                                Each product is carefully handcrafted with
+                                attention to detail, creating pieces that are
+                                bright, attractive, unique, and suitable for
+                                everyday use and gifting.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RIGHT: IMAGE PLACEHOLDER -->
+
+                    <div class="blog-image-placeholder">
+
+                        <!--
+                            ADD YOUR IMAGE HERE
+
+                            Example:
+
+                            <img src="Assets/felt-products.jpg"
+                                 alt="Handmade felt products">
+                        -->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 FROM REMOTE COMMUNITIES - IMAGE RIGHT
+            ========================================= -->
+
+            <div class="blog-section">
+
+                <div class="blog-two-column">
+
+
+                    <!-- LEFT: CONTENT -->
+
+                    <div class="blog-text">
+
+                        <h2>
+                            From Remote Communities to Global Markets
+                        </h2>
+
+                        <div class="blog-content">
+
+                            <p>
+                                Many of the producers connected with Natural Wool
+                                House come from remote parts of Nepal. For women
+                                living in these communities, access to stable
+                                employment and reliable income can be difficult.
+                            </p>
+
+                            <p>
+                                Some are single mothers. Some come from families
+                                with limited economic resources. Others experience
+                                social isolation or have fewer opportunities to
+                                participate in formal employment.
+                            </p>
+
+                            <p>
+                                Handicraft production provides an important
+                                alternative. Instead of leaving their communities
+                                in search of work, women can use their existing
+                                skills and learn new ones while earning an income
+                                through handmade production.
+                            </p>
+
+                            <p>
+                                When a handmade product reaches an international
+                                customer, it creates a connection between the maker
+                                in Nepal and someone thousands of kilometers away.
+                            </p>
+
+                            <p>
+                                A felt ornament, bag, rug, or accessory can
+                                therefore become more than a product — it can
+                                become a bridge between communities.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RIGHT: IMAGE PLACEHOLDER -->
+
+                    <div class="blog-image-placeholder">
+
+                        <!--
+                            ADD YOUR IMAGE HERE
+
+                            Example:
+
+                            <img src="Assets/nepalese-artisan.jpg"
+                                 alt="Nepalese woman creating handmade felt">
+                        -->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 WOMEN EMPOWERMENT - IMAGE RIGHT
+            ========================================= -->
+
+            <div class="blog-section">
+
+                <div class="blog-two-column">
+
+
+                    <!-- LEFT: CONTENT -->
+
+                    <div class="blog-text">
+
+                        <h2>
+                            Why Women's Empowerment Matters
+                        </h2>
+
+                        <div class="blog-content">
+
+                            <p>
+                                Women's empowerment is not simply about providing
+                                employment. It is about creating opportunities for
+                                women to have greater control over their own lives,
+                                choices, income, and future.
+                            </p>
+
+                            <p>
+                                For women with limited economic opportunities,
+                                earning their own income can make a meaningful
+                                difference. Financial independence can help women
+                                contribute to household expenses, support their
+                                children's education, and build a more secure future.
+                            </p>
+
+                            <p>
+                                Many of the women involved in handicraft production
+                                come from remote communities. Some are single mothers,
+                                while others have experienced social and economic
+                                isolation.
+                            </p>
+
+                            <p>
+                                Through handicraft work, these women can develop
+                                skills, earn income, build confidence, and become
+                                stronger contributors to their families and communities.
+                            </p>
+
+                            <p>
+                                When we support women artisans, the impact goes beyond
+                                one person. It can reach families, children, and
+                                entire communities.
+                            </p>
+
+                            <ul>
+                                <li>
+                                    A woman gains access to meaningful work.
+                                </li>
+
+                                <li>
+                                    She develops skills and earns an income.
+                                </li>
+
+                                <li>
+                                    Her financial confidence and independence grow.
+                                </li>
+
+                                <li>
+                                    She can contribute more strongly to her household.
+                                </li>
+
+                                <li>
+                                    Her children can benefit from better opportunities.
+                                </li>
+
+                                <li>
+                                    The wider community becomes economically stronger.
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RIGHT: IMAGE PLACEHOLDER -->
+
+                    <div class="blog-image-placeholder">
+
+                        <!--
+                            ADD YOUR IMAGE HERE
+
+                            Example:
+
+                            <img src="Assets/women-artisans.jpg"
+                                 alt="Women artisans making handmade felt products">
+                        -->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 PRESERVING NEPALESE CRAFTSMANSHIP
+            ========================================= -->
+
+            <div class="blog-section">
+
+                <div class="blog-two-column">
+
+
+                    <!-- LEFT: CONTENT -->
+
+                    <div class="blog-text">
+
+                        <h2>
+                            Preserving Nepalese Craftsmanship
+                        </h2>
+
+                        <div class="blog-content">
+
+                            <p>
+                                Nepal has a rich tradition of handmade craftsmanship.
+                                Felt and wool are particularly important materials within
+                                Nepal's handicraft industry. Artisans have developed
+                                techniques that transform wool fibers into functional
+                                and decorative products.
+                            </p>
+
+                            <p>
+                                Supporting handmade production helps keep these skills
+                                alive. It allows traditional knowledge to be passed from
+                                one generation to another while also giving artisans the
+                                opportunity to experiment with modern designs and
+                                international trends.
+                            </p>
+
+                            <p>
+                                This balance between tradition and creativity is at the
+                                heart of Nepalese handicrafts: respecting where the craft
+                                comes from while finding new ways to share it with the world.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RIGHT: IMAGE PLACEHOLDER -->
+
+                    <div class="blog-image-placeholder">
+
+                        <!--
+                            ADD YOUR IMAGE HERE
+
+                            Example:
+
+                            <img src="Assets/felt-craftsmanship.jpg"
+                                 alt="Traditional Nepalese felt craftsmanship technique">
+                        -->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 FAIR TRADE
+            ========================================= -->
+
+            <div class="blog-section">
+
+                <h2>
+                    Fair Trade: Putting People First
+                </h2>
+
+                <div class="blog-content">
+
+                    <p>
+                        Natural Wool House is working toward becoming a member of
+                        the Fair Trade Organization in Nepal and follows principles
+                        associated with fair trade practices.
+                    </p>
+
+                    <p>
+                        These principles place people and communities at the center
+                        of business. They include opportunities for economically
+                        disadvantaged producers, transparency and accountability,
+                        fair pricing, responsible trading practices, and safe
+                        working conditions.
+                    </p>
+
+                    <h3>
+                        Fair Trade Principles We Value
+                    </h3>
+
+                    <ul>
+                        <li>
+                            Opportunities for economically disadvantaged producers.
+                        </li>
+
+                        <li>
+                            Transparency and accountability.
+                        </li>
+
+                        <li>
+                            Responsible trading practices.
+                        </li>
+
+                        <li>
+                            Payment of a fair price.
+                        </li>
+
+                        <li>
+                            No child labor or forced labor.
+                        </li>
+
+                        <li>
+                            Non-discrimination and gender equality.
+                        </li>
+
+                        <li>
+                            Safe and appropriate working conditions.
+                        </li>
+
+                        <li>
+                            Capacity building and skill development.
+                        </li>
+
+                        <li>
+                            Promotion of fair trade.
+                        </li>
+
+                        <li>
+                            Environmental responsibility.
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 WOMEN AS CHANGEMAKERS
+            ========================================= -->
+
+            <div class="blog-section">
+
+                <div class="blog-two-column">
+
+
+                    <!-- LEFT: CONTENT -->
+
+                    <div class="blog-text">
+
+                        <h2>
+                            Women as Makers, Entrepreneurs and Changemakers
+                        </h2>
+
+                        <div class="blog-content">
+
+                            <p>
+                                Women artisans are not simply workers. They are creators,
+                                problem-solvers, caregivers, teachers, entrepreneurs, and
+                                community members.
+                            </p>
+
+                            <p>
+                                Many women balance craft production with responsibilities
+                                at home. Their ability to continue creating, learning, and
+                                earning demonstrates remarkable resilience.
+                            </p>
+
+                            <p>
+                                With the right opportunities, women can turn skills that
+                                were once considered household or traditional activities
+                                into sustainable sources of income.
+                            </p>
+
+                            <p>
+                                They can develop confidence, improve their craftsmanship,
+                                learn about markets, and become active participants in
+                                economic life.
+                            </p>
+
+                            <p>
+                                That is why women's empowerment should not be viewed as
+                                charity. It should be viewed as an investment — in people,
+                                families, communities, and the future.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RIGHT: IMAGE PLACEHOLDER -->
+
+                    <div class="blog-image-placeholder">
+
+                        <!--
+                            ADD YOUR IMAGE HERE
+
+                            Example:
+
+                            <img src="Assets/women-entrepreneurs.jpg"
+                                 alt="Nepalese woman artisan running her own craft business">
+                        -->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 SMALL HANDS BIG IMPACT
+            ========================================= -->
+
+            <div class="blog-section">
+
+                <div class="sub-section">
+
+                    <h3>
+                        Small Hands, Big Impact
+                    </h3>
+
+                    <div class="blog-content">
+
+                        <p>
+                            Imagine a woman sitting in her community, carefully
+                            shaping wool into a small felt flower. Perhaps that
+                            flower will become part of a Christmas decoration
+                            sold somewhere across the world.
+                        </p>
+
+                        <p>
+                            For the customer, it may simply be a beautiful
+                            decoration.
+                        </p>
+
+                        <p>
+                            For the artisan, it may represent an afternoon of work,
+                            a new skill, an earned income, and an opportunity to
+                            contribute to her family's future.
+                        </p>
+
+                        <blockquote class="pull-quote">
+                            That is the hidden value of handmade.
+                        </blockquote>
+
+                        <p>
+                            Behind every stitch, every fiber, and every carefully
+                            shaped piece of wool is a person.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 WHEN BUYING BECOMES SUPPORT
+            ========================================= -->
+
+            <div class="blog-section">
+
+                <h2>
+                    When Buying Becomes a Form of Support
+                </h2>
+
+                <div class="blog-content">
+
+                    <p>
+                        In today's world, it is easy to see a product simply as
+                        something we purchase. But handmade products invite us
+                        to look deeper.
+                    </p>
+
+                    <p>
+                        When you choose a handmade felt bag, a woolen decoration,
+                        or a handcrafted accessory, you are supporting a process
+                        that involves real people and real skills.
+                    </p>
+
+                    <p>
+                        Your purchase can help sustain an artisan's livelihood,
+                        encourage creativity, preserve traditional skills, and
+                        contribute to a more inclusive economy.
+                    </p>
+
+                    <p>
+                        This is one of the reasons BhedaCraft believes in telling
+                        the stories behind handmade products. We don't want the
+                        maker to disappear behind the product.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 FROM KATHMANDU TO THE WORLD
+            ========================================= -->
+
+            <div class="blog-section">
+
+                <div class="blog-two-column">
+
+
+                    <!-- LEFT: CONTENT -->
+
+                    <div class="blog-text">
+
+                        <h2>
+                            From Kathmandu to the World
+                        </h2>
+
+                        <div class="blog-content">
+
+                            <p>
+                                Based in Tarakeshwor-10, Kathmandu, Natural Wool House
+                                combines local craftsmanship with an international vision.
+                            </p>
+
+                            <p>
+                                Its workshop provides a place where handmade products can
+                                be created, developed, and prepared for markets around
+                                the world.
+                            </p>
+
+                            <p>
+                                Its goal is not only to promote Nepalese handicrafts
+                                internationally, but also to create meaningful economic
+                                opportunities for marginalized women and producers from
+                                remote communities.
+                            </p>
+
+                            <p>
+                                This vision reflects something we deeply value at BhedaCraft:
+                            </p>
+
+                            <blockquote class="pull-quote">
+                                When we support handmade, we support the people
+                                behind handmade.
+                            </blockquote>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RIGHT: IMAGE PLACEHOLDER -->
+
+                    <div class="blog-image-placeholder">
+
+                        <!--
+                            ADD YOUR IMAGE HERE
+
+                            Example:
+
+                            <img src="Assets/kathmandu-workshop.jpg"
+                                 alt="Natural Wool House workshop in Kathmandu">
+                        -->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 CONCLUSION
+            ========================================= -->
+
+            <div id="conclusion" class="blog-section conclusion-box">
+
+                <h2>
+                    Conclusion: Every Handmade Story Matters
+                </h2>
+
+                <div class="blog-content">
+
+                    <p>
+                        A handmade product is never just an object.
+                    </p>
+
+                    <p>
+                        It can carry a tradition. It can represent someone's
+                        skill. It can provide income for a family. It can help
+                        a mother support her children's education. It can give
+                        a woman greater independence. And it can connect a small
+                        community in Nepal with customers around the world.
+                    </p>
+
+                    <p>
+                        At <strong>BhedaCraft</strong>, we believe that beautiful
+                        crafts become even more meaningful when they create
+                        positive change.
+                    </p>
+
+                    <p>
+                        So the next time you hold a handmade piece of felt or wool,
+                        take a moment to think about the hands that made it.
+                        Behind its colors and textures may be a story of
+                        determination, creativity, and hope.
+                    </p>
+
+                    <blockquote class="pull-quote">
+                        Because when we choose handmade, we don't just buy
+                        a product — we help keep a story alive.
+                    </blockquote>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer class="footer">
+
+        <div class="footer__inner">
+
+
+            <!-- Brand -->
+
+            <div class="footer__brand">
+
+                <img src="Assets/BhedaCraftLogo.png"
+                     style="border-radius: 50%;"
+                     alt="Bheda Craft Logo">
+
+                <p>
+                    Handcrafted whimsical items in the heart of Kathmandu.
+                </p>
+
+            </div>
+
+
+            <!-- Quick Links -->
+
+            <div class="footer__col">
+
+                <h4 style="font-family: 'Fisterra Fora', sans-serif;">
+                    Navigate
+                </h4>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="explore.html">
+                    Explore
+                </a>
+
+                <a href="blog.html">
+                    Blog
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <!-- Contact -->
+
+            <div class="footer__col">
+
+                <h4 style="font-family: 'Fisterra Fora', sans-serif;">
+                    Contact
+                </h4>
+
+                <p>
+                    Tarakeshwor-10, KTM
+                </p>
+
+                <p>
+                    +977-9761830129
+                </p>
+
+                <a href="mailto:bhedadoescraft@gmail.com">
+                    BhedaCraft@gmail.com
+                </a>
+
+                <a href="https://instagram.com/bhedacraft"
+                   target="_blank"
+                   rel="noopener">
+
+                    <i class="fa-brands fa-instagram"></i>
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer__bottom">
+
+            <p>
+                &copy; 2026 BhedaCraft. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script>
+        (function () {
+            var bar = document.getElementById('readingProgressBar');
+            var article = document.querySelector('.blog-container');
+            if (!bar || !article) return;
+
+            function update() {
+                var total = article.offsetHeight - window.innerHeight;
+                var scrolled = window.scrollY - article.offsetTop + 120;
+                var pct = total > 0 ? Math.min(100, Math.max(0, (scrolled / total) * 100)) : 0;
+                bar.style.width = pct + '%';
+            }
+
+            window.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+            update();
+        })();
+    </script>
+
 </body>
 </html>
