@@ -1,31 +1,711 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Home page of website">
-	<title>BhedaCraft-Explore</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-    <style>
-        * {
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Explore handmade felt products from BhedaCraft">
+<title>Explore | BhedaCraft</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+<script src="explore.js" defer></script>
+
+<style>
+    * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
-     .Navphoto{
-       width: 60px;
+    .Navphoto{
+        width: 60px;
         height: 60px;
         border-radius: 35%;
         display: block;
     }
-    </style>
+
+    /* ---------- Navbar cart icon ---------- */
+    .nav-cart{
+        position: relative;
+        color: var(--ink);
+        font-size: 1.1rem;
+        text-decoration: none;
+        margin-left: 10px;
+    }
+    .nav-cart .cart-count{
+        position: absolute;
+        top: -10px;
+        right: -14px;
+        background: #FFF8F0;
+        color: #5B342C;
+        font-family: 'Baloo 2', cursive;
+        font-size: 11px;
+        font-weight: 700;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* ---------- Page banner ---------- */
+    .explore-banner{
+        position: relative;
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+    }
+    .explore-banner img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 35%;
+        display: block;
+        filter: brightness(0.72);
+    }
+    .explore-banner-text{
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 20px;
+    }
+    .explore-banner-text .eyebrow{
+        font-family: 'Baloo 2', cursive;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        font-size: 13px;
+        color: #F1DFC9;
+        margin-bottom: 10px;
+    }
+    .explore-banner-text h1{
+        font-family: 'Fisterra Fora', sans-serif;
+        color: #FFF8F0;
+        font-size: 48px;
+        margin-bottom: 10px;
+    }
+    .explore-banner-text p{
+        font-family: 'Baloo 2', cursive;
+        color: #F3DBBC;
+        font-size: 17px;
+        max-width: 480px;
+    }
+
+    /* ---------- Wholesale / bulk order strip ---------- */
+    .wholesale-strip{
+        width: 90%;
+        max-width: 1300px;
+        margin: 40px auto 0;
+        background: #FFF8F0;
+        border: 1px dashed #9E5949;
+        border-radius: 16px;
+        padding: 22px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+    .wholesale-text{
+        display: flex;
+        align-items: center;
+        gap: 14px;
+    }
+    .wholesale-text i{
+        font-size: 26px;
+        color: #9E5949;
+    }
+    .wholesale-text h4{
+        font-family: 'Fisterra Fora', sans-serif;
+        color: #3E2F24;
+        font-size: 19px;
+        margin-bottom: 3px;
+    }
+    .wholesale-text p{
+        font-family: 'Baloo 2', cursive;
+        color: #5B4636;
+        font-size: 14px;
+    }
+    .wholesale-actions{
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+    .wholesale-btn{
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #9E5949;
+        color: #FFF8F0;
+        text-decoration: none;
+        font-family: 'Baloo 2', cursive;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 12px 24px;
+        border-radius: 30px;
+        transition: 0.25s;
+        white-space: nowrap;
+    }
+    .wholesale-btn:hover{
+        background: #7d4739;
+    }
+    .wholesale-btn.outline{
+        background: transparent;
+        border: 1.5px solid #9E5949;
+        color: #5B342C;
+    }
+    .wholesale-btn.outline:hover{
+        background: #F1DFC9;
+    }
+
+    @media (max-width: 560px){
+        .wholesale-strip{
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .wholesale-actions{ width: 100%; }
+        .wholesale-btn{ flex: 1; justify-content: center; }
+    }
+
+    /* ---------- Layout shell ---------- */
+    .shop-wrap{
+        width: 90%;
+        max-width: 1300px;
+        margin: 45px auto 80px;
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        gap: 40px;
+        align-items: flex-start;
+    }
+
+    /* ---------- Filter sidebar ---------- */
+    .filters{
+        background: #FFF8F0;
+        border: 1px dashed #9E5949;
+        border-radius: 16px;
+        padding: 24px 22px;
+        position: sticky;
+        top: 100px;
+    }
+    .filters h3{
+        font-family: 'Fisterra Fora', sans-serif;
+        color: #3E2F24;
+        font-size: 20px;
+        margin-bottom: 18px;
+    }
+    .filter-search{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: #F3DBBC;
+        border-radius: 30px;
+        padding: 10px 16px;
+        margin-bottom: 26px;
+    }
+    .filter-search input{
+        border: none;
+        background: transparent;
+        outline: none;
+        font-family: 'Baloo 2', cursive;
+        color: #3E2F24;
+        width: 100%;
+        font-size: 14px;
+    }
+    .filter-search i{ color: #9E5949; }
+
+    .filter-group{
+        margin-bottom: 26px;
+    }
+    .filter-group h4{
+        font-family: 'Baloo 2', cursive;
+        color: #5B4636;
+        font-size: 13px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+        opacity: 0.85;
+    }
+
+    .cat-tag{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        background: transparent;
+        border: none;
+        font-family: 'Baloo 2', cursive;
+        font-size: 15px;
+        color: #5B4636;
+        text-align: left;
+        padding: 8px 6px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+    .cat-tag::before{
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #F3DBBC;
+        border: 2px solid #9E5949;
+        flex-shrink: 0;
+        transition: 0.2s;
+    }
+    .cat-tag:hover{
+        background: #F3DBBC;
+    }
+    .cat-tag.active{
+        color: #3E2F24;
+        font-weight: 700;
+        background: #F1DFC9;
+    }
+    .cat-tag.active::before{
+        background: #9E5949;
+        box-shadow: 0 0 0 3px #F3DBBC inset;
+    }
+
+    .check-row{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: 'Baloo 2', cursive;
+        color: #5B4636;
+        font-size: 14px;
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+    .check-row input{
+        accent-color: #9E5949;
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+    }
+
+    .clear-filters{
+        display: inline-block;
+        margin-top: 4px;
+        font-family: 'Baloo 2', cursive;
+        font-size: 13px;
+        color: #9E5949;
+        text-decoration: underline;
+        cursor: pointer;
+        border: none;
+        background: none;
+    }
+
+    /* ---------- Toolbar ---------- */
+    .shop-toolbar{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-bottom: 26px;
+    }
+    .results-count{
+        font-family: 'Baloo 2', cursive;
+        color: #5B4636;
+        font-size: 15px;
+    }
+    .results-count strong{ color: #3E2F24; }
+
+    .sort-box{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: 'Baloo 2', cursive;
+        color: #5B4636;
+        font-size: 14px;
+    }
+    .sort-box select{
+        font-family: 'Baloo 2', cursive;
+        border: 1px solid #9E5949;
+        background: #FFF8F0;
+        color: #3E2F24;
+        padding: 8px 14px;
+        border-radius: 20px;
+        outline: none;
+        cursor: pointer;
+    }
+
+    /* ---------- Active filter chips ---------- */
+    .active-chips{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+    .active-chips .chip{
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: #9E5949;
+        color: #FFF8F0;
+        font-family: 'Baloo 2', cursive;
+        font-size: 13px;
+        padding: 6px 12px;
+        border-radius: 20px;
+    }
+    .active-chips .chip i{
+        cursor: pointer;
+        font-size: 11px;
+    }
+
+    /* ---------- Product grid ---------- */
+    .product-grid{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 26px;
+    }
+
+    .product-card{
+        background: #FFF8F0;
+        border-radius: 15px;
+        border: 1px dashed #C9A788;
+        overflow: hidden;
+        transition: 0.25s;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+    .product-card:hover{
+        transform: translateY(-6px);
+        box-shadow: 0 14px 28px rgba(62, 47, 36, 0.18);
+        border-color: #9E5949;
+    }
+
+    .card-media{
+        position: relative;
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+    }
+    .card-media img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.4s;
+    }
+    .product-card:hover .card-media img{
+        transform: scale(1.07);
+    }
+
+    .wish-btn{
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: rgba(255,248,240,0.9);
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #9E5949;
+        cursor: pointer;
+        font-size: 14px;
+        transition: 0.2s;
+    }
+    .wish-btn.active{
+        color: #c0392b;
+    }
+    .wish-btn.active i{
+        font-weight: 900;
+    }
+
+    .card-eyebrow{
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: #3E2F24;
+        color: #F3DBBC;
+        font-family: 'Baloo 2', cursive;
+        font-size: 11px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 5px 10px;
+        border-radius: 20px;
+    }
+
+    .card-body{
+        padding: 16px 18px 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        flex: 1;
+    }
+    .card-cat{
+        font-family: 'Baloo 2', cursive;
+        font-size: 12px;
+        color: #9E5949;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+    .card-title{
+        font-family: 'Fisterra Fora', sans-serif;
+        font-size: 19px;
+        color: #3E2F24;
+        line-height: 1.25;
+    }
+    .card-bottom{
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 10px;
+    }
+    .card-price{
+        font-family: 'Baloo 2', cursive;
+        font-weight: 700;
+        color: #3E2F24;
+        font-size: 17px;
+    }
+    .add-cart-btn{
+        background: #9E5949;
+        color: #FFF8F0;
+        border: none;
+        font-family: 'Baloo 2', cursive;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 9px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: 0.25s;
+        white-space: nowrap;
+    }
+    .add-cart-btn:hover{
+        background: #7d4739;
+    }
+    .add-cart-btn.added{
+        background: #3E2F24;
+    }
+
+    .no-results{
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 60px 20px;
+        font-family: 'Baloo 2', cursive;
+        color: #5B4636;
+    }
+    .no-results i{
+        font-size: 34px;
+        color: #9E5949;
+        margin-bottom: 14px;
+        display: block;
+    }
+
+    /* ---------- Cart drawer ---------- */
+    .cart-overlay{
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(62, 47, 36, 0.45);
+        z-index: 1998;
+    }
+    .cart-overlay.open{ display: block; }
+
+    .cart-drawer{
+        position: fixed;
+        top: 0;
+        right: -420px;
+        width: 400px;
+        max-width: 88vw;
+        height: 100%;
+        background: #F3DBBC;
+        z-index: 1999;
+        display: flex;
+        flex-direction: column;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+        transition: right 0.3s ease;
+    }
+    .cart-drawer.open{ right: 0; }
+
+    .cart-drawer-head{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 22px 24px;
+        border-bottom: 1px dashed #9E5949;
+    }
+    .cart-drawer-head h3{
+        font-family: 'Fisterra Fora', sans-serif;
+        color: #3E2F24;
+        font-size: 22px;
+    }
+    .cart-close{
+        background: none;
+        border: none;
+        font-size: 18px;
+        color: #5B4636;
+        cursor: pointer;
+    }
+
+    .cart-items{
+        flex: 1;
+        overflow-y: auto;
+        padding: 10px 24px;
+    }
+    .cart-item{
+        display: flex;
+        gap: 14px;
+        padding: 16px 0;
+        border-bottom: 1px solid #E6CBA8;
+    }
+    .cart-item img{
+        width: 68px;
+        height: 68px;
+        object-fit: cover;
+        border-radius: 10px;
+        flex-shrink: 0;
+    }
+    .cart-item-info{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+    .cart-item-info .name{
+        font-family: 'Fisterra Fora', sans-serif;
+        color: #3E2F24;
+        font-size: 15px;
+        line-height: 1.2;
+    }
+    .cart-item-info .price{
+        font-family: 'Baloo 2', cursive;
+        color: #5B4636;
+        font-size: 13px;
+    }
+    .qty-row{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 4px;
+    }
+    .qty-row button{
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        border: 1px solid #9E5949;
+        background: #FFF8F0;
+        color: #3E2F24;
+        cursor: pointer;
+        font-size: 13px;
+        line-height: 1;
+    }
+    .qty-row span{
+        font-family: 'Baloo 2', cursive;
+        color: #3E2F24;
+        font-size: 14px;
+        min-width: 16px;
+        text-align: center;
+    }
+    .remove-item{
+        align-self: flex-start;
+        background: none;
+        border: none;
+        color: #9E5949;
+        font-size: 13px;
+        cursor: pointer;
+        margin-left: auto;
+    }
+
+    .cart-empty{
+        text-align: center;
+        padding: 60px 20px;
+        font-family: 'Baloo 2', cursive;
+        color: #5B4636;
+    }
+    .cart-empty i{
+        font-size: 32px;
+        color: #9E5949;
+        display: block;
+        margin-bottom: 12px;
+    }
+
+    .cart-drawer-foot{
+        padding: 20px 24px 26px;
+        border-top: 1px dashed #9E5949;
+        background: #FFF8F0;
+    }
+    .cart-subtotal{
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Baloo 2', cursive;
+        color: #3E2F24;
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 14px;
+    }
+    .checkout-btn{
+        width: 100%;
+        background: #9E5949;
+        color: #FFF8F0;
+        border: none;
+        font-family: 'Baloo 2', cursive;
+        font-size: 15px;
+        font-weight: 700;
+        padding: 14px;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: 0.25s;
+    }
+    .checkout-btn:hover{ background: #7d4739; }
+    .checkout-btn:disabled{
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    /* ---------- Mobile filter toggle ---------- */
+    .mobile-filter-toggle{
+        display: none;
+        align-items: center;
+        gap: 8px;
+        background: #9E5949;
+        color: #FFF8F0;
+        border: none;
+        font-family: 'Baloo 2', cursive;
+        font-size: 14px;
+        padding: 10px 18px;
+        border-radius: 20px;
+        margin-bottom: 18px;
+        cursor: pointer;
+    }
+
+    @media (max-width: 900px){
+        .shop-wrap{
+            grid-template-columns: 1fr;
+        }
+        .filters{
+            position: static;
+            display: none;
+        }
+        .filters.open{ display: block; }
+        .mobile-filter-toggle{ display: inline-flex; }
+        .product-grid{
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .explore-banner-text h1{ font-size: 34px; }
+    }
+    @media (max-width: 560px){
+        .product-grid{
+            grid-template-columns: 1fr;
+        }
+        .shop-toolbar{
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+</style>
 </head>
 <body>
     
@@ -34,15 +714,15 @@
             <img src="Assets/BhedaCraftLogo.png" alt="BhedaCraft Logo" class="Navphoto">
         </a>
     <ul class="nav-links">
-        
+
         <li>
-            <a href="index.html" >
+            <a href="index.html">
                 Home
             </a>
         </li>
 
         <li>
-            <a href="explore.html"class="active">
+            <a href="explore.html" class="active">
                 Explore
             </a>
         </li>
@@ -59,16 +739,139 @@
             </a>
         </li>
 
+        <li>
+            <a href="#" onclick="openLogin(); return false;">
+                Login
+            </a>
+        </li>
+
+        <li>
+            <a href="#" class="nav-cart" id="cartToggle" aria-label="Open cart">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </a>
+        </li>
+
     </ul>
     </nav>
-    
+
+    <div id="loader">
+        <img src="Assets/BhedaCraftLogo.png" alt="BhedaCraft Logo" class="logo">
+    </div>
+
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-head">
+            <h3>Your Cart</h3>
+            <button class="cart-close" id="cartClose" aria-label="Close cart">✕</button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-drawer-foot">
+            <div class="cart-subtotal">
+                <span>Subtotal</span>
+                <span id="cartSubtotal">Rs. 0</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn" disabled>Checkout</button>
+        </div>
+    </aside>
+
+    <section class="explore-banner">
+        <img src="Assets/HeroImageBD.png" alt="Handmade felt products from Nepal">
+        <div class="explore-banner-text">
+            <span class="eyebrow">Handmade in Kathmandu</span>
+            <h1>Explore the Collection</h1>
+            <p>Felt animals, home decor, and accessories, each one shaped by hand from pure Himalayan wool.</p>
+        </div>
+    </section>
+
+    <div class="wholesale-strip">
+        <div class="wholesale-text">
+            <i class="fa-solid fa-boxes-stacked"></i>
+            <div>
+                <h4>Ordering in Bulk or Wholesale?</h4>
+                <p>Reach out for custom quantities, custom designs, and trade pricing.</p>
+            </div>
+        </div>
+        <div class="wholesale-actions">
+            <a href="https://instagram.com/bhedacraft" target="_blank" rel="noopener" class="wholesale-btn">
+                <i class="fa-brands fa-instagram"></i> Message on Instagram
+            </a>
+            <a href="mailto:bhedadoescraft@gmail.com?subject=Bulk%20%2F%20Wholesale%20Order%20Inquiry" class="wholesale-btn outline">
+                <i class="fa-solid fa-envelope"></i> Email Us
+            </a>
+        </div>
+    </div>
+
+    <main class="shop-wrap">
+
+        <button class="mobile-filter-toggle" id="mobileFilterToggle">
+            <i class="fa-solid fa-sliders"></i> Filter &amp; Sort
+        </button>
+
+        <aside class="filters" id="filtersPanel">
+            <h3>Refine</h3>
+
+            <div class="filter-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Search products...">
+            </div>
+
+            <div class="filter-group">
+                <h4>Category</h4>
+                <button class="cat-tag active" data-category="all">All Products</button>
+                <button class="cat-tag" data-category="Home Decor">Home Decor</button>
+                <button class="cat-tag" data-category="Ornaments">Ornaments</button>
+                <button class="cat-tag" data-category="Bags &amp; Accessories">Bags &amp; Accessories</button>
+                <button class="cat-tag" data-category="Baby &amp; Kids">Baby &amp; Kids</button>
+                <button class="cat-tag" data-category="Seasonal">Seasonal</button>
+            </div>
+
+            <div class="filter-group">
+                <h4>Price Range</h4>
+                <label class="check-row"><input type="checkbox" class="price-check" value="0-500"> Under Rs. 500</label>
+                <label class="check-row"><input type="checkbox" class="price-check" value="500-1000"> Rs. 500 &ndash; 1000</label>
+                <label class="check-row"><input type="checkbox" class="price-check" value="1000-2000"> Rs. 1000 &ndash; 2000</label>
+                <label class="check-row"><input type="checkbox" class="price-check" value="2000-999999"> Rs. 2000+</label>
+            </div>
+
+            <div class="filter-group">
+                <h4>Material</h4>
+                <label class="check-row"><input type="checkbox" class="material-check" value="Wool Felt"> Wool Felt</label>
+                <label class="check-row"><input type="checkbox" class="material-check" value="Felt &amp; Wood"> Felt &amp; Wood</label>
+                <label class="check-row"><input type="checkbox" class="material-check" value="Cotton Blend"> Cotton Blend</label>
+            </div>
+
+            <button class="clear-filters" id="clearFilters">Clear all filters</button>
+        </aside>
+
+        <section>
+            <div class="active-chips" id="activeChips"></div>
+
+            <div class="shop-toolbar">
+                <p class="results-count"><strong id="resultsNum">0</strong> products found</p>
+                <div class="sort-box">
+                    <label for="sortSelect">Sort by</label>
+                    <select id="sortSelect">
+                        <option value="featured">Featured</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="name-asc">Name: A to Z</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="product-grid" id="productGrid"></div>
+        </section>
+
+    </main>
+
     <footer>
-		<footer class="footer">
+        <footer class="footer">
     <div class="footer__inner">
 
       <!-- Brand column -->
-      <div class="footer__brand">   
-        
+      <div class="footer__brand">
+
         <img src="Assets/BhedaCraftLogo.png" style="border-radius: 50%;" alt="Bheda Craft Logo" />
         <p>Handcrafted whimsical items in the heart of Kathmandu.</p>
       </div>
@@ -84,13 +887,13 @@
 
       <!-- Contact -->
       <div class="footer__col">
-        <h4 style="font-family: 'Fisterra Fora', sans-serif;" >Contact</h4>
+        <h4 style="font-family: 'Fisterra Fora', sans-serif;">Contact</h4>
         <p>Tarakeshwor-10, KTM</p>
-        
+
         <p>+977-9761830129</p>
-        
+
         <a href="mailto:bhedadoescraft@gmail.com">BhedaDoesCraft@gmail.com</a>
-        
+
         <a href="https://instagram.com/bhedacraft" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
       </div>
 
@@ -100,5 +903,15 @@
       <p>&copy; 2026 BhedaCraft. All rights reserved.</p>
     </div>
   </footer>
+
+    <div class="loginsu" id="loginsu">
+        <form class="popup" onsubmit="closeLogin(); return false;">
+            <span class="close" onclick="closeLogin()">✕</span>
+            <h2>Login</h2>
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
 </body>
 </html>
