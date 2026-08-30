@@ -1,7 +1,7 @@
 body{
     margin: 0; 
     padding: 0;
-    background-color: #F3DBBC;
+    background-color: #F9EDDE;
     box-sizing: border-box;
 }
 #logo{
@@ -249,7 +249,7 @@ body{
     width:100%;
     overflow:hidden;
     padding:35px 0;
-    background:#F3DBBC;
+    background:#F9EDDE;
 }
 
 .slide-track{
