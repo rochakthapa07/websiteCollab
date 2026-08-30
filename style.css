@@ -35,22 +35,17 @@ body{
         display: flex;
         align-items: center;
         gap: 35px;
-
         list-style: none;
     }
 
     .nav-links a {
         position: relative;
-
         text-decoration: none;
         color: var(--ink);
-
         font-family: 'Baloo 2', cursive;
         font-size: 1.2rem;
         letter-spacing: 1.2px;
-
         padding: 4px 2px;
-
         transition: 0.25s ease;
     }
 
